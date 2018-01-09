@@ -8,6 +8,6 @@ phpunit --bootstrap=modules/unittest/bootstrap.php application/tests/ServletTest
 
 ##Class structure
 Test class list
-* ServletTest   application/tests/ServletTest.php
-* Servlet	      application/classes/Servlet.php
-* Database	  application/classes/Model/Database.php
+* __ServletTest__   application/tests/ServletTest.php
+* __Servlet__	      application/classes/Servlet.php
+* __Database__	  application/classes/Model/Database.php
