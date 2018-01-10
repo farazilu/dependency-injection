@@ -37,13 +37,18 @@ class Model_TreeNode
             // add child node as we reach child level
             if ($y == $this->y) {
                 $this->left = new Model_TreeNode($x, $y, $value);
+                echo 'ADD L :' . PHP_EOL;
             } else {
                 $this->right = new Model_TreeNode($x, $y, $value);
+                echo 'ADD R :' . PHP_EOL;
             }
         } else {
-            if ($y < $this->y) {
+            if ($y == $this->y) {
+                echo 'ADD C L :' . PHP_EOL;
                 $this->left->add_child($x, $y, $value);
-            } else {
+            }
+            if ($y > $this->y) {
+                echo 'ADD C R :' . PHP_EOL;
                 $this->right->add_child($x, $y, $value);
             }
         }
@@ -51,15 +56,19 @@ class Model_TreeNode
 
     public function print()
     {
-        echo $this->value;
-        echo ' ';
         if ($this->left instanceof Model_TreeNode) {
-            echo 'L :';
+            echo $this->value;
+            echo ' L :';
             $this->left->print();
         }
         if ($this->right instanceof Model_TreeNode) {
-            echo 'R: ';
+            echo $this->value;
+            echo ' R: ';
             $this->right->print();
+        }
+        if ($this->right === null && $this->left === null) {
+            echo $this->value;
+            echo ' *';
         }
         echo PHP_EOL;
     }
