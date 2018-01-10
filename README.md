@@ -1,6 +1,6 @@
 # Implement a dependency injection pattern
 
-Requires php7.1, phpunit, php7.1-mbstring
+Requires php7.1, phpunit 6.5, php7.1-mbstring
 Implement a dependency injection pattern in Kohana framework. 
 
 To test navigate to root of project and run follwing command 
