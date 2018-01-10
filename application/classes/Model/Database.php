@@ -5,7 +5,7 @@
  * @author faraz
  *
  */
-class Model_Database
+class Model_Database implements DatabaseInterface
 {
 
     /**
