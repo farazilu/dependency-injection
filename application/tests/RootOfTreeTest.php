@@ -80,6 +80,7 @@ class RootOfTreeTest extends Unittest_TestCase
         // execute test
         // echo PHP_EOL;
         // $root_tree->print_array();
+        // this solution does not work can't convert tree root to binary tree.. so proper all posible node tree not posible without c++ pointers.
         // $root_tree->calculateRootUsingBinaryTree();
         $root_total_left = $root_tree->caclucateRootUsingOptimalRouteLeft();
         // echo PHP_EOL;
