@@ -5,7 +5,7 @@
  * @author faraz
  *        
  */
-class Model_ReadFile implements Reader
+class Model_ReadFile implements ReaderInterface
 {
 
     protected $file;
@@ -27,7 +27,13 @@ class Model_ReadFile implements Reader
                 while (($line = fgets($fp)) !== false) {
                     // echo $line;
                     // echo PHP_EOL;
-                    $array[$x] = explode(' ', $line);
+                    // convert line to array
+                    $array_line = explode(' ', $line);
+                    // convert array values to int
+                    $array_line_int = array_map(function ($val) {
+                        return (int) $val;
+                    }, $array_line);
+                    $array[$x] = $array_line_int;
                     $x ++;
                 }
                 fclose($fp);

@@ -5,7 +5,7 @@
  * @author faraz
  *        
  */
-interface Reader
+interface ReaderInterface
 {
 
     /**
