@@ -12,6 +12,8 @@ class Model_RootTree
 
     private $tree;
 
+    private static $all_options = [];
+
     /**
      */
     public function __construct(array $array)
@@ -51,7 +53,7 @@ class Model_RootTree
         // check if have not reachd end of root
         if (isset($this->array[$x][$y])) {
             $total += $this->array[$x][$y];
-            echo "[{$x} {$y}] {$this->array[$x][$y]}, {$total} | ";
+            // echo "[{$x} {$y}] v:{$this->array[$x][$y]}, T:{$total} | ";
             // check if we have child path..
             if (isset($this->array[$x + 1])) {
                 // check if we have nodes to look left or right
@@ -86,7 +88,7 @@ class Model_RootTree
         if (isset($this->array[$x][$y])) {
             
             $total += $this->array[$x][$y];
-            echo "[{$x} {$y}] {$this->array[$x][$y]}, {$total} | ";
+            // echo "[{$x} {$y}] V:{$this->array[$x][$y]}, T:{$total} | ";
             // check if we have child path..
             if (isset($this->array[$x + 1])) {
                 // check if we have nodes to look left or right
@@ -103,6 +105,46 @@ class Model_RootTree
             }
         }
         return $total;
+    }
+
+    public function caclucateRootUsingAllOptions(): int
+    {
+        $this->caclucateRootUsingAllOptionscalculator();
+        return max(self::$all_options);
+    }
+
+    /**
+     * calculate root path using all possible paths.
+     * 1. look at both childs
+     * 2. just start follwing path for both childs
+     *
+     * @return int
+     */
+    private function caclucateRootUsingAllOptionscalculator(int $x = 0, int $y = 0, int $total = 0): void
+    {
+        
+        // check if have not reachd end of root
+        if (isset($this->array[$x][$y])) {
+            
+            $total += $this->array[$x][$y];
+            //echo "[{$x} {$y}] V:{$this->array[$x][$y]}, T:{$total} | ";
+            // check if we have child path..
+            if (isset($this->array[$x + 1])) {
+                // check if we have nodes to look left or right
+                
+                // now check what value is larget
+                
+                // check if left child value is great go left path
+                $this->caclucateRootUsingAllOptionscalculator($x + 1, $y, $total);
+                
+                // or both are same then or right is greater go right path.
+                $this->caclucateRootUsingAllOptionscalculator($x + 1, $y + 1, $total);
+            } else {
+                self::$all_options[] = $total;
+                //echo "End: [{$x} {$y}] T:{$total}";
+               // echo PHP_EOL;
+            }
+        }
     }
 
     /**

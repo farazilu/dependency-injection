@@ -25,6 +25,8 @@ class Model_ReadFile implements ReaderInterface
             if ($fp) {
                 $x = 0;
                 while (($line = fgets($fp)) !== false) {
+                    // remove tail space
+                    $line = trim($line);
                     // echo $line;
                     // echo PHP_EOL;
                     // convert line to array
