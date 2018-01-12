@@ -16,14 +16,14 @@ class Servlet
      *
      * @param Model_Database $database
      */
-    public function __construct(Model_Database $database)
+    public function __construct(DatabaseInterface $database)
     {
         $this->database = $database;
     }
 
     /**
      * get message using database object passed as dependency to constructor
-     * 
+     *
      * @return string
      */
     public function getMessage(): string
