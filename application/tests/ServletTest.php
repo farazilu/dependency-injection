@@ -18,7 +18,7 @@ class ServletTest extends Unittest_TestCase
         $message = (new Servlet($database))->getMessage();
         
         // assert
-        $this->assertSame($message, 'Cohesion Digital');
+        $this->assertSame($message, 'Model Database');
     }
 }
 

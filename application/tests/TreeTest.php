@@ -48,7 +48,7 @@ class TreeTest extends Unittest_TestCase
         
         $this->print2d_array($totals);
         // assert
-        // $this->assertSame($message, 'Cohesion Digital');
+        // $this->assertSame($message, 'Model Database');
     }
 
     private function print2d_array(array $array)

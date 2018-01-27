@@ -15,7 +15,7 @@ class Model_Database implements DatabaseInterface
      */
     public function getMessage(): string
     {
-        return 'Cohesion Digital';
+        return 'Model Database';
     }
 }
 
